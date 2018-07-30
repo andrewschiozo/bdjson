@@ -19,6 +19,11 @@ class DB
 		}
 	}
 
+	public function getFilePath()
+	{
+		return DATA_PATH . $this->name . '/';
+	}
+
 	public function getName()
 	{
 		return $this->name;
@@ -81,7 +86,6 @@ class DB
 	public function create()
 	{
 		$dir = DATA_PATH . $this->name;
-
 		if (file_exists($dir)) {
 			throw new Exception("Banco já existe", 1);
 		}

@@ -14,7 +14,7 @@ class Table
 
 	protected function getFilePath()
 	{
-		return DATA_PATH . $this->db->getName() . '/' . $this->name . '.json';
+		return $this->db->getFilePath() . $this->name . '.json';
 	}
 
 	public function getName()
@@ -24,7 +24,7 @@ class Table
 
 	public function create()
 	{
-		if (file_exists($this->getFilePath())) {
+		if (file_exists($this->db->getFilePath())) {
 			if(file_exists($this->getFilePath()))
 			{
 		    	throw new Exception('Tabela ' . $this->name . ' já existe', 1);
